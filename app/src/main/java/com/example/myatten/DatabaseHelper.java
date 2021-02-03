@@ -109,10 +109,10 @@ class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor= db.rawQuery("select * from TABLE_REGISTER",null);
         return cursor;
     }
-    String getname(){
+    String getname(String regno){
         SQLiteDatabase db = this.getReadableDatabase();
         //String selectquery="SELECT * FROM TABLE_REGISTER";
-        Cursor cursor=db.query(TABLE_REGISTER,null,  "name=?",new String[]{name},null, null, null, null);
+        Cursor cursor=db.query(TABLE_REGISTER,null,  "reg_no=?",new String[]{regno},null, null, null, null);
 
         if(cursor.getCount()<1){
             cursor.close();

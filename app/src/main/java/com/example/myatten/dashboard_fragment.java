@@ -16,6 +16,8 @@ import androidx.fragment.app.Fragment;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import static com.example.myatten.login_fragment.user;
+
 
 public class dashboard_fragment extends Fragment {
 
@@ -27,7 +29,7 @@ public class dashboard_fragment extends Fragment {
     private SimpleDateFormat timeFormat;
     private String date;
     private String time;
-     DatabaseHandler db;
+    DatabaseHandler db;
 
     @Nullable
     @Override
@@ -38,18 +40,18 @@ public class dashboard_fragment extends Fragment {
         date_text = root.findViewById(R.id.date);
         time_text = root.findViewById(R.id.time);
         db = new DatabaseHandler(getContext());
-        Cursor cursor=db.alldata();
-        if(cursor.getCount()==0){
-            Toast.makeText(getContext(),"No data", Toast.LENGTH_SHORT).show();
+        //Cursor cursor=db.alldata();
+       // if(cursor.getCount()==0){
+         //   Toast.makeText(getContext(),"No data", Toast.LENGTH_SHORT).show();
 
-        }
-        else
-        {
-            while(cursor.moveToNext()){
-                //Toast.makeText(getContext(),"")
-                name_text.setText(cursor.getString(0));
-            }
-        }
+        //}
+//        else
+//        {
+//            while(cursor.moveToNext()){
+//                Toast.makeText(getContext(),"")
+//                name_text.setText(cursor.getString(0));
+//            }
+//        }
             calendar = Calendar.getInstance();
             dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             timeFormat = new SimpleDateFormat("h:mm a");
@@ -57,6 +59,8 @@ public class dashboard_fragment extends Fragment {
             date = dateFormat.format(calendar.getTime());
             date_text.setText(date);
             time_text.setText(time);
+            name_text.setText(db.getname(user));
+
 
 
           // name_text.setText(db.getname());

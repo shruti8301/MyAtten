@@ -20,6 +20,7 @@ public class login_fragment extends Fragment {
     Button login;
     float v = 0;
     DatabaseHandler db;
+    public static String user;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,7 +49,7 @@ public class login_fragment extends Fragment {
 //                startActivity(intent);
                    // TODO Auto-generated method stub
                   db=new DatabaseHandler(getContext());
-                   String user=username.getText().toString();
+                    user=username.getText().toString();
                    String pass1= password.getText().toString();
 
                    String StoredPassword =db.getregister(user);
