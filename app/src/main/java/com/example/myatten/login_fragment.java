@@ -53,6 +53,12 @@ public class login_fragment extends Fragment {
                    String pass1= password.getText().toString();
 
                    String StoredPassword =db.getregister(user);
+
+                   if(user.equals("") && pass1.equals(""))
+                   {
+                       Toast.makeText(getContext(),"Enter details",Toast.LENGTH_LONG).show();
+                   }
+                   else{
                    if(pass1.equals(StoredPassword)){
 
                        Toast.makeText(getContext(), "Login Successful", Toast.LENGTH_LONG).show();
@@ -67,7 +73,7 @@ public class login_fragment extends Fragment {
 
 
 
-            }
+            }}
       });
 
         return root;

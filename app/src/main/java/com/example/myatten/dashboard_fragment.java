@@ -1,6 +1,7 @@
 package com.example.myatten;
 
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ public class dashboard_fragment extends Fragment {
     TextView name_text;
     TextView date_text;
     TextView time_text;
+    TextView absent_present;
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
     private SimpleDateFormat timeFormat;
@@ -39,6 +41,8 @@ public class dashboard_fragment extends Fragment {
         name_text = root.findViewById(R.id.name_text);
         date_text = root.findViewById(R.id.date);
         time_text = root.findViewById(R.id.time);
+        absent_present=root.findViewById(R.id.absent_or_present);
+
         db = new DatabaseHandler(getContext());
         //Cursor cursor=db.alldata();
        // if(cursor.getCount()==0){
@@ -60,13 +64,26 @@ public class dashboard_fragment extends Fragment {
             date_text.setText(date);
             time_text.setText(time);
             name_text.setText(db.getname(user));
+//            click_text();
+            absent_present.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    absent_present.setText("P");
+                    absent_present.setTextColor(Color.parseColor("#602D60"));
 
-
-
+                }
+            });
           // name_text.setText(db.getname());
             return root;
 
 
         }
-    }
+
+//    private void click_text() {
+//
+//        absent_present.setText("P");
+//    }
+
+
+}
 

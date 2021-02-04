@@ -75,13 +75,9 @@ class DatabaseHandler extends SQLiteOpenHelper {
         // Inserting Row
 
         db.insert(TABLE_REGISTER, null, values);
-        db.close(); // Closing database connection
+        db.close();   //Closing database connection
 
     }
-
-
-
-
 
     //code to get the register
     String getregister(String regno){
@@ -97,11 +93,8 @@ class DatabaseHandler extends SQLiteOpenHelper {
 
             password = cursor.getString(cursor.getColumnIndex(KEY_PASSWORD));
             cursor.close();
-
         }
         return password;
-
-
     }
     //retrieving data
     Cursor alldata(){
@@ -113,7 +106,6 @@ class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         //String selectquery="SELECT * FROM TABLE_REGISTER";
         Cursor cursor=db.query(TABLE_REGISTER,null,  "reg_no=?",new String[]{regno},null, null, null, null);
-
         if(cursor.getCount()<1){
             cursor.close();
             return "Not Exist";
@@ -122,11 +114,8 @@ class DatabaseHandler extends SQLiteOpenHelper {
 
             name = cursor.getString(cursor.getColumnIndex(KEY_NAME));
             cursor.close();
-
         }
         return name;
-
-
     }
 
     public String getDatabaseName() {
